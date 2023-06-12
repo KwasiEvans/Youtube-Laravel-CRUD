@@ -11,6 +11,7 @@ class PostData extends Model
 
     protected $fillable = [
         "text_post",
-        "image_post"
+        "image_post",
+        "video_post"
     ];
 }

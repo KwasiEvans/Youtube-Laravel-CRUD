@@ -23,6 +23,14 @@ class PostController extends Controller
                 $post->image_post = $path;
             }
         }
+
+        if($request->hasFile('post_video')){
+            $uploadVideo = $request->file('post_video');
+            if($uploadVideo){
+                $path = $uploadVideo->store('video_posts', 'public');
+                $post->video_post = $path;
+            }
+        }
         $post->save();
         return back()->with('success', "Successfully posted");
      } catch (\Exception $e) {

@@ -29,7 +29,14 @@
         <div class="row justify-content-center">
           <div class="col-md-6">
             <div class="card mb-4">
+              @if($posts->image_post)
               <img src="{{ asset('storage/' . $posts->image_post) }}" class="card-img-top" alt="Post Image">
+              @endif
+              @if($posts->video_post)
+              <div class="card-body">
+                <video class="card-video" src="{{asset('storage/' . $posts->video_post)}}" controls></video>
+              </div>
+            @endif
               <div class="card-body">
                 <p class="card-text">{{$posts->text_post}}</p>
               </div>
@@ -43,3 +50,9 @@
 <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx" crossorigin="anonymous"></script>
 </html>
+
+<style>
+  .card-video {
+    width: 100%;
+  }
+</style>
